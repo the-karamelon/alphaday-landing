@@ -1,107 +1,98 @@
 import { ImageResponse } from "next/og";
+import { readFile } from "fs/promises";
+import path from "path";
 
 export const alt = "알파데이 – 아이디어만 가져오세요";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
-export default function OGImage() {
+export default async function OGImage() {
+    // public 폴더에서 직접 ttf 로드
+    const [fontRegular, fontBold] = await Promise.all([
+        readFile(path.join(process.cwd(), "public", "에이투지체-4Regular.ttf")),
+        readFile(path.join(process.cwd(), "public", "에이투지체-7Bold.ttf")),
+    ]);
+
     return new ImageResponse(
         (
             <div
                 style={{
-                    background: "#E75C3A",
+                    background: "#ffffff",
                     width: "100%",
                     height: "100%",
                     display: "flex",
                     flexDirection: "column",
                     alignItems: "center",
                     justifyContent: "center",
-                    padding: "80px",
-                    gap: "24px",
+                    position: "relative",
+                    overflow: "hidden",
+                    fontFamily: "'A2z'",
                 }}
             >
-                {/* 로고 */}
+                {/* dot grid 배경 */}
                 <div
                     style={{
+                        position: "absolute",
+                        inset: 0,
+                        backgroundImage: "radial-gradient(circle, #d1d5db 1.5px, transparent 1.5px)",
+                        backgroundSize: "28px 28px",
+                        opacity: 0.5,
                         display: "flex",
-                        alignItems: "center",
-                        gap: "14px",
-                        marginBottom: "8px",
                     }}
-                >
-                    <div
-                        style={{
-                            width: "56px",
-                            height: "56px",
-                            background: "white",
-                            borderRadius: "12px",
-                            display: "flex",
-                            alignItems: "center",
-                            justifyContent: "center",
-                            fontSize: "32px",
-                            fontWeight: "bold",
-                            color: "#111827",
-                        }}
-                    >
-                        α
+                />
+
+                {/* 콘텐츠 */}
+                <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "0px", position: "relative", padding: "0 80px" }}>
+
+                    {/* 로고 */}
+                    <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "36px" }}>
+                        <div style={{ width: "40px", height: "40px", background: "#E75C3A", borderRadius: "9px", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "24px", fontWeight: "bold", color: "white" }}>
+                            α
+                        </div>
+                        <span style={{ fontSize: "22px", fontWeight: "700", color: "#111827", letterSpacing: "-0.5px" }}>
+                            alphaday
+                        </span>
                     </div>
-                    <span
-                        style={{
-                            fontSize: "36px",
-                            fontWeight: "bold",
-                            color: "white",
-                            letterSpacing: "-0.5px",
-                        }}
-                    >
-                        alphaday
-                    </span>
-                </div>
 
-                {/* 메인 카피 */}
-                <div
-                    style={{
+                    {/* 헤드라인 */}
+                    <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "8px" }}>
+                        <div style={{ display: "flex", fontSize: "60px", fontWeight: "800", color: "#111827", letterSpacing: "-2px", lineHeight: 1.15, textAlign: "center" }}>
+                            머릿속 아이디어,
+                        </div>
+                        <div style={{ display: "flex", fontSize: "60px", fontWeight: "800", letterSpacing: "-2px", lineHeight: 1.15, textAlign: "center", gap: "0px" }}>
+                            <span style={{ color: "#E75C3A" }}>'먼저' 만들기&nbsp;</span>
+                            <span style={{ color: "#111827" }}>전에 검증하세요</span>
+                        </div>
+                    </div>
+
+                    {/* 서브 카피 */}
+                    <div style={{ display: "flex", fontSize: "22px", color: "#6b7280", marginTop: "24px", letterSpacing: "-0.3px", textAlign: "center" }}>
+                        개발자 없이, 디자인 없이. 아이디어만 가져오세요.
+                    </div>
+
+                    {/* 사전예약 버튼 */}
+                    <div style={{
                         display: "flex",
-                        fontSize: "52px",
-                        fontWeight: "bold",
+                        marginTop: "40px",
+                        background: "#E75C3A",
                         color: "white",
-                        textAlign: "center",
-                        lineHeight: 1.2,
-                        letterSpacing: "-1px",
-                    }}
-                >
-                    아이디어만 가져오세요.
-                </div>
-
-                {/* 서브 카피 */}
-                <div
-                    style={{
-                        display: "flex",
-                        fontSize: "24px",
-                        color: "#9ca3af",
-                        textAlign: "center",
-                        lineHeight: 1.5,
-                    }}
-                >
-                    개발자 없이, 디자인 없이. 당신의 아이디어가 진짜 팔릴지 5분 만에 확인하세요.
-                </div>
-
-                {/* CTA 배지 */}
-                <div
-                    style={{
-                        display: "flex",
-                        marginTop: "16px",
-                        background: "white",
-                        color: "#111827",
-                        fontSize: "18px",
+                        fontSize: "22px",
                         fontWeight: "600",
-                        padding: "12px 32px",
+                        padding: "18px 48px",
                         borderRadius: "999px",
-                    }}
-                >
-                    🚀 무료 사전예약 진행 중
+                        letterSpacing: "-0.3px",
+                    }}>
+                        ⚡ 5분 만에 시장 반응 확인하기
+                    </div>
                 </div>
             </div>
         ),
-        { ...size }
+        {
+            ...size,
+            fonts: [
+                { name: "A2z", data: fontRegular, weight: 400, style: "normal" },
+                { name: "A2z", data: fontBold, weight: 700, style: "normal" },
+            ],
+        }
     );
 }
