@@ -13,7 +13,7 @@ export default function Footer() {
                 <div className="grid grid-cols-2 gap-8 lg:grid-cols-4">
                     <div className="col-span-2 lg:col-span-1">
                         <div className="mb-3 flex items-center gap-1.5">
-                            <span className="flex h-6 w-6 items-center justify-center rounded bg-primary text-[11px] font-bold text-white">α</span>
+                            <span className="flex h-6 w-6 items-center justify-center rounded bg-primary text-[16px] font-bold text-white">α</span>
                             <span className="text-sm font-semibold">alphaday</span>
                         </div>
                         <p className="text-xs leading-relaxed text-muted-foreground">
