@@ -9,7 +9,7 @@ export default function OGImage() {
         (
             <div
                 style={{
-                    background: "#111827",
+                    background: "#E75C3A",
                     width: "100%",
                     height: "100%",
                     display: "flex",
