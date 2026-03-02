@@ -60,6 +60,7 @@ export default function OGImage() {
                 {/* 메인 카피 */}
                 <div
                     style={{
+                        display: "flex",
                         fontSize: "52px",
                         fontWeight: "bold",
                         color: "white",
@@ -74,19 +75,20 @@ export default function OGImage() {
                 {/* 서브 카피 */}
                 <div
                     style={{
+                        display: "flex",
                         fontSize: "24px",
                         color: "#9ca3af",
                         textAlign: "center",
                         lineHeight: 1.5,
                     }}
                 >
-                    개발자 없이, 디자인 없이.{"\n"}
-                    당신의 아이디어가 진짜 팔릴지 5분 만에 확인하세요.
+                    개발자 없이, 디자인 없이. 당신의 아이디어가 진짜 팔릴지 5분 만에 확인하세요.
                 </div>
 
                 {/* CTA 배지 */}
                 <div
                     style={{
+                        display: "flex",
                         marginTop: "16px",
                         background: "white",
                         color: "#111827",
