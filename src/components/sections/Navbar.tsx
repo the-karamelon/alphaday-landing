@@ -26,7 +26,7 @@ export default function Navbar({ onCTAClick }: NavbarProps) {
     >
       <div className="mx-auto flex h-14 max-w-5xl items-center justify-between px-6">
         <a href="#" className="flex items-center gap-1.5 text-sm font-semibold tracking-tight">
-          <span className="flex h-6 w-6 items-center justify-center rounded bg-primary text-[11px] font-bold text-white">α</span>
+          <span className="flex h-6 w-6 items-center justify-center rounded bg-primary text-[16px] font-bold text-white">α</span>
           alphaday
         </a>
         <Button size="sm" onClick={onCTAClick} className="cursor-pointer rounded-full px-4 text-xs">
