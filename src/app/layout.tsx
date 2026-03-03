@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import "./globals.css";
 
 const BASE_URL = "https://alphaday.vercel.app";
@@ -70,6 +71,21 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko" data-theme="light" style={{ colorScheme: "light" }}>
+      <head>
+        {/* Google Analytics */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-VCH292ELCZ"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-VCH292ELCZ');
+          `}
+        </Script>
+      </head>
       <body className="antialiased" style={{ fontFamily: "'A2z', sans-serif" }}>
         {children}
       </body>
