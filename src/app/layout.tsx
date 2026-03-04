@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Script from "next/script";
+import ScrollTracker from "@/components/ScrollTracker";
 import "./globals.css";
 
 const BASE_URL = "https://alphaday.vercel.app";
@@ -88,6 +89,7 @@ export default function RootLayout({
         </Script>
       </head>
       <body className="antialiased" style={{ fontFamily: "'A2z', sans-serif" }}>
+        <ScrollTracker />
         {children}
       </body>
     </html>
