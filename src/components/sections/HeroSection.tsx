@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { trackCTAClick } from "@/lib/gtag";
 
 interface HeroSectionProps {
     onCTAClick: () => void;
@@ -70,7 +71,14 @@ export default function HeroSection({ onCTAClick }: HeroSectionProps) {
 
                 {/* CTA buttons */}
                 <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-                    <Button size="lg" onClick={onCTAClick} className="cursor-pointer rounded-full px-6">
+                    <Button
+                        size="lg"
+                        onClick={() => {
+                            trackCTAClick('5분 만에 시장 반응 확인 (Hero)', 'button');
+                            onCTAClick();
+                        }}
+                        className="cursor-pointer rounded-full px-6"
+                    >
                         ⚡ 5분 만에 시장 반응 확인하기
                     </Button>
                     {/* <Button size="lg" variant="outline" onClick={onCTAClick} className="cursor-pointer rounded-full px-6">

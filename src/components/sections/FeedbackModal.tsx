@@ -6,6 +6,7 @@ import {
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { saveFeedback } from "@/lib/firestore";
+import { trackEvent } from "@/lib/gtag";
 
 interface FeedbackModalProps {
     open: boolean;
@@ -169,6 +170,14 @@ export default function FeedbackModal({ open, onOpenChange, onCloseAll, docId }:
                                         try {
                                             if (docId) {
                                                 await saveFeedback(docId, { startupStage, fears, feature, story });
+                                                // GA4 이벤트 추적
+                                                trackEvent('user_feedback', {
+                                                    startup_stage: startupStage,
+                                                    fears_count: fears.length,
+                                                    feature_selected: feature,
+                                                    has_story: story.length > 0,
+                                                    story_length: story.length,
+                                                });
                                             }
                                         } catch (err) {
                                             console.error("피드백 저장 실패:", err);

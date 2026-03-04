@@ -1,6 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
+import { trackCTAClick } from "@/lib/gtag";
 
 interface CTASectionProps {
     onCTAClick: () => void;
@@ -24,7 +25,10 @@ export default function CTASection({ onCTAClick }: CTASectionProps) {
                 <div className="mt-8 flex flex-col items-center gap-3">
                     <Button
                         size="lg"
-                        onClick={onCTAClick}
+                        onClick={() => {
+                            trackCTAClick('5분 만에 내 아이디어 시장 반응 확인 (CTA Section)', 'button');
+                            onCTAClick();
+                        }}
                         className="group relative cursor-pointer overflow-hidden rounded-full px-8 transition-all"
                         title="준비는 저희가 다 해두었습니다"
                     >
