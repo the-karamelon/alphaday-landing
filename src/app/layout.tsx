@@ -8,7 +8,7 @@ const BASE_URL = "https://alphaday.vercel.app";
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
   title: {
-    default: "알파데이 – 아이디어만 가져오세요. 무료 사전예약",
+    default: "알파데이 – 아이디어만 가져오세요.",
     template: "%s | 알파데이",
   },
   description:
