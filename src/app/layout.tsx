@@ -8,7 +8,7 @@ const BASE_URL = "https://alphaday.vercel.app";
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
   title: {
-    default: "알파데이 – 아이디어만 가져오세요. 무료 사전예약",
+    default: "알파데이 – 아이디어만 가져오세요.",
     template: "%s | 알파데이",
   },
   description:
@@ -36,13 +36,13 @@ export const metadata: Metadata = {
     locale: "ko_KR",
     url: BASE_URL,
     siteName: "알파데이",
-    title: "알파데이 – 아이디어만 가져오세요. 무료 사전예약",
+    title: "알파데이 – 아이디어만 가져오세요.",
     description:
       "개발자 없이, 디자인 없이. 당신의 아이디어가 진짜 팔릴지 5분 만에 확인하세요.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "알파데이 – 아이디어만 가져오세요. 무료 사전예약",
+    title: "알파데이 – 아이디어만 가져오세요.",
     description:
       "개발자 없이, 디자인 없이. 당신의 아이디어가 진짜 팔릴지 5분 만에 확인하세요.",
   },
