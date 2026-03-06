@@ -60,9 +60,12 @@ export const metadata: Metadata = {
     canonical: BASE_URL,
   },
   icons: {
-    icon: "/favicon.svg",
-    shortcut: "/favicon.svg",
-    apple: "/favicon.svg",
+    icon: [
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/logo-180.png", type: "image/png", sizes: "180x180" },
+    ],
+    shortcut: "/logo-180.png",
+    apple: "/logo-180.png",
   },
 };
 
@@ -76,6 +79,7 @@ export default function RootLayout({
     "@type": "SoftwareApplication",
     name: "알파데이",
     url: BASE_URL,
+    logo: `${BASE_URL}/logo-180.png`,
     description:
       "개발자 없이, 디자인 없이. 당신의 아이디어가 진짜 팔릴지 5분 만에 확인하세요. 창업 아이디어 검증, MVP 제작, 시제품 제작, 고객 반응 테스트까지.",
     applicationCategory: "BusinessApplication",
