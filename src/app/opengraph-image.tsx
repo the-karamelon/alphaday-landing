@@ -82,7 +82,7 @@ export default async function OGImage() {
                         borderRadius: "999px",
                         letterSpacing: "-0.3px",
                     }}>
-                        ⚡ 5분 만에 시장 반응 확인하기
+                        🚀 내 아이디어 무료로 검증해보기
                     </div>
                 </div>
             </div>

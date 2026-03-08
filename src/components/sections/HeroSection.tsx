@@ -79,7 +79,7 @@ export default function HeroSection({ onCTAClick }: HeroSectionProps) {
                         }}
                         className="cursor-pointer rounded-full px-6"
                     >
-                        ⚡ 5분 만에 시장 반응 확인하기
+                        🚀 내 아이디어 무료로 검증해보기
                     </Button>
                     {/* <Button size="lg" variant="outline" onClick={onCTAClick} className="cursor-pointer rounded-full px-6">
                         서비스 더 알아보기
