@@ -74,30 +74,50 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    name: "알파데이",
-    url: BASE_URL,
-    logo: `${BASE_URL}/logo-180.png`,
-    description:
-      "개발자 없이, 디자인 없이. 당신의 아이디어가 진짜 팔릴지 5분 만에 확인하세요. 창업 아이디어 검증, MVP 제작, 시제품 제작, 고객 반응 테스트까지.",
-    applicationCategory: "BusinessApplication",
-    operatingSystem: "Web",
-    offers: {
-      "@type": "Offer",
-      price: "0",
-      priceCurrency: "KRW",
-      description: "무료 사전예약",
-    },
-    creator: {
+  const jsonLd = [
+    {
+      "@context": "https://schema.org",
       "@type": "Organization",
-      name: "Karamelon",
+      name: "알파데이",
       url: BASE_URL,
+      logo: {
+        "@type": "ImageObject",
+        url: `${BASE_URL}/logo-180.png`,
+        width: 180,
+        height: 180,
+      },
       email: "the.karamelon@gmail.com",
     },
-    inLanguage: "ko",
-  };
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      name: "알파데이",
+      url: BASE_URL,
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      name: "알파데이",
+      url: BASE_URL,
+      description:
+        "개발자 없이, 디자인 없이. 당신의 아이디어가 진짜 팔릴지 5분 만에 확인하세요. 창업 아이디어 검증, MVP 제작, 시제품 제작, 고객 반응 테스트까지.",
+      applicationCategory: "BusinessApplication",
+      operatingSystem: "Web",
+      offers: {
+        "@type": "Offer",
+        price: "0",
+        priceCurrency: "KRW",
+        description: "무료 사전예약",
+      },
+      creator: {
+        "@type": "Organization",
+        name: "알파데이",
+        url: BASE_URL,
+        email: "the.karamelon@gmail.com",
+      },
+      inLanguage: "ko",
+    },
+  ];
 
   return (
     <html lang="ko" data-theme="light" style={{ colorScheme: "light" }}>
